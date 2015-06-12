@@ -78,8 +78,6 @@ data = GetUrlData(LOGINURL, "POST", "formtoken=" & token & "&username=" & replac
 regEx.Pattern = ".*Logging you in.*"
 Set loginMatches = regEx.Execute(data)
 
-WScript.StdErr.Write "data:" & data & vbCrLf
-
 If loginMatches.Count = 0 Then
 	Wscript.StdErr.Write "Login Failed. Check username and password" & vbCrLf
 	WScript.Quit 1
