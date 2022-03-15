@@ -29,5 +29,5 @@ jobs:
     
     - uses: actions/upload-artifact@v3
       with:
-        name: fetchstats$-{{ matrix.os }}
+        name: fetchstats-${{ matrix.os }}
         path: ${{ github.workspace }}/fetchstats
