@@ -26,3 +26,8 @@ jobs:
 
     - name: Test
       run: go test -v ./cmd/fetchstats
+    
+    - uses: actions/upload-artifact@v3
+      with:
+        name: fetchstats$-{{ matrix.os }}
+        path: ${{ github.workspace }}/fetchstats
