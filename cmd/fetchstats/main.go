@@ -9,8 +9,8 @@ import (
 	"net/http"
 	"net/http/cookiejar"
 	"net/url"
+	"os"
 	"regexp"
-	"syscall"
 
 	"golang.org/x/net/html"
 	"golang.org/x/net/publicsuffix"
@@ -30,7 +30,8 @@ func (o *opts) validate() error {
 	}
 
 	if len(o.password) == 0 {
-		psswd, err := term.ReadPassword(syscall.Stdin)
+		fmt.Printf("Password for user %s: ", o.username)
+		psswd, err := term.ReadPassword(int(os.Stdin.Fd()))
 		if err != nil {
 			return err
 		}
